@@ -15,8 +15,6 @@ jobs:
         with:
           node-version: 16
       - uses: ArtiomTr/jest-coverage-report-action@v2.2.4
-        with:
-          coverage-file: ./coverage/coverage-final.json
 
       - run: npm ci
       - run: npm test-cov
