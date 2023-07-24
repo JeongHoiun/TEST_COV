@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - uses: supercharge/mongodb-github-action@1.9.0
