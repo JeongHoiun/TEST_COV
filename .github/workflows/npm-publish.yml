@@ -10,9 +10,8 @@ jobs:
   build:
     permissions: write-all
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./Javascript
+    env:
+      working-directory: ./Javascript
     steps:
       - uses: supercharge/mongodb-github-action@1.9.0
       - uses: actions/checkout@v3
