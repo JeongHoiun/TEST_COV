@@ -4,21 +4,32 @@
 name: Node.js Package
 
 on:
-  push
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     permissions: write-all
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./Javascript
+    defaults:
+      run:
+        working-directory: ./Javascript
     steps:
-      - uses: supercharge/mongodb-github-action@1.9.0
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: use Mongo
+        uses: supercharge/mongodb-github-action@1.9.0
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: use node
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm install
-      - run: npm ci
-      - uses: ArtiomTr/jest-coverage-report-action@v2.2.4
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./Javascript
+      - name: run ci
+        run: npm ci
+        working-directory: ./Javascript
+      - name: run coverage
+        uses: ArtiomTr/jest-coverage-report-action@v2.2.4
           
