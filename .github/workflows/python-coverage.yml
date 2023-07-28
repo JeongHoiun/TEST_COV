@@ -25,6 +25,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install coverage
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        working-directory: Python
       - name: run python
         run: python calculator.py
       - name: run coverage
@@ -32,3 +33,4 @@ jobs:
           coverage run calculator.py
           coverage report -m
           coverage xml
+        working-directory: Python
