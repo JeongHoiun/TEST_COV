@@ -34,4 +34,4 @@ jobs:
         uses: ArtiomTr/jest-coverage-report-action@v2.2.4
         with:
           working-directory: ./Javascript
-          
+          annotations: coverage
